@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:padding="@dimen/activity_user_padding">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/userInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_user_padding">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/pictureLarge"
+            android:layout_width="@dimen/activity_user_picture_size"
+            android:layout_height="@dimen/activity_user_picture_size"
+            android:contentDescription="@string/pictureLargeDescription"
+            app:civ_border_color="@color/colorWhite"
+            app:civ_border_width="@dimen/activity_user_picture_border"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size_large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pictureLarge" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/locationLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userName">
+
+            <TextView
+                android:id="@+id/labelLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelLocationText"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelStreet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelStreetText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelPostcode"
+                app:layout_constraintTop_toBottomOf="@+id/labelLocation" />
+
+            <TextView
+                android:id="@+id/valueStreet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelPostcode"
+                app:layout_constraintTop_toBottomOf="@+id/labelLocation" />
+
+            <TextView
+                android:id="@+id/labelCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelCityText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelPostcode"
+                app:layout_constraintTop_toBottomOf="@+id/labelStreet" />
+
+            <TextView
+                android:id="@+id/valueCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelPostcode"
+                app:layout_constraintTop_toBottomOf="@+id/labelStreet" />
+
+            <TextView
+                android:id="@+id/labelState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelStateText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelPostcode"
+                app:layout_constraintTop_toBottomOf="@+id/labelCity" />
+
+            <TextView
+                android:id="@+id/valueState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelPostcode"
+                app:layout_constraintTop_toBottomOf="@+id/labelCity" />
+
+            <TextView
+                android:id="@+id/labelPostcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelPostcodeText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelLocation"
+                app:layout_constraintTop_toBottomOf="@+id/labelState" />
+
+            <TextView
+                android:id="@+id/valuePostcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelPostcode"
+                app:layout_constraintTop_toBottomOf="@+id/labelState" />
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/labelEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            android:maxLines="1"
+            android:text="@string/labelEmailText"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationLayout" />
+
+        <TextView
+            android:id="@+id/valueEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_user_margin_start"
+            android:maxLines="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toRightOf="@+id/labelEmail"
+            app:layout_constraintTop_toTopOf="@+id/labelEmail" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/loginLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelEmail">
+
+            <TextView
+                android:id="@+id/labelLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelLoginText"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelUsernameText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelLogin"
+                app:layout_constraintTop_toBottomOf="@+id/labelLogin" />
+
+            <TextView
+                android:id="@+id/valueUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelLogin" />
+
+            <TextView
+                android:id="@+id/labelPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelPasswordText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelUsername" />
+
+            <TextView
+                android:id="@+id/valuePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelUsername" />
+
+            <TextView
+                android:id="@+id/labelSalt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelSaltText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelPassword" />
+
+            <TextView
+                android:id="@+id/valueSalt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelPassword" />
+
+            <TextView
+                android:id="@+id/labelMd5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelMd5Text"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelSalt" />
+
+            <TextView
+                android:id="@+id/valueMd5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelSalt" />
+
+            <TextView
+                android:id="@+id/labelSha1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelSha1Text"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelMd5" />
+
+            <TextView
+                android:id="@+id/valueSha1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelMd5" />
+
+            <TextView
+                android:id="@+id/labelSha256"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelSha256Text"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelSha1" />
+
+            <TextView
+                android:id="@+id/valueSha256"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelUsername"
+                app:layout_constraintTop_toBottomOf="@+id/labelSha1" />
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/labelDob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            android:maxLines="1"
+            android:text="@string/labelDobText"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginLayout" />
+
+        <TextView
+            android:id="@+id/valueDob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_user_margin_start"
+            android:maxLines="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toRightOf="@+id/labelDob"
+            app:layout_constraintTop_toTopOf="@+id/labelDob" />
+
+        <TextView
+            android:id="@+id/labelRegistered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            android:maxLines="1"
+            android:text="@string/labelRegisteredText"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelDob" />
+
+        <TextView
+            android:id="@+id/valueRegistered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_user_margin_start"
+            android:maxLines="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toRightOf="@+id/labelRegistered"
+            app:layout_constraintTop_toTopOf="@+id/labelRegistered" />
+
+        <TextView
+            android:id="@+id/labelPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            android:maxLines="1"
+            android:text="@string/labelPhoneText"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelRegistered" />
+
+        <TextView
+            android:id="@+id/valuePhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_user_margin_start"
+            android:maxLines="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toRightOf="@+id/labelPhone"
+            app:layout_constraintTop_toTopOf="@+id/labelPhone" />
+
+        <TextView
+            android:id="@+id/labelCell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            android:maxLines="1"
+            android:text="@string/labelCellText"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelPhone" />
+
+        <TextView
+            android:id="@+id/valueCell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_user_margin_start"
+            android:maxLines="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toRightOf="@+id/labelCell"
+            app:layout_constraintTop_toTopOf="@+id/labelCell" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/idLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelCell">
+
+            <TextView
+                android:id="@+id/labelId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelIdText"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelIdName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelIdNameText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintRight_toRightOf="@+id/labelIdValue"
+                app:layout_constraintTop_toBottomOf="@+id/labelId" />
+
+            <TextView
+                android:id="@+id/valueIdName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelIdValue"
+                app:layout_constraintTop_toBottomOf="@+id/labelId" />
+
+            <TextView
+                android:id="@+id/labelIdValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/labelIdValueText"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelId"
+                app:layout_constraintTop_toBottomOf="@+id/labelIdName" />
+
+            <TextView
+                android:id="@+id/valueIdValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_user_margin_start"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/activity_user_text_size"
+                app:layout_constraintLeft_toRightOf="@+id/labelIdValue"
+                app:layout_constraintTop_toBottomOf="@+id/labelIdName" />
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/labelNat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_user_margin_top"
+            android:maxLines="1"
+            android:text="@string/labelNatText"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLayout" />
+
+        <TextView
+            android:id="@+id/valueNat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_user_margin_start"
+            android:maxLines="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_user_text_size"
+            app:layout_constraintLeft_toRightOf="@+id/labelNat"
+            app:layout_constraintTop_toTopOf="@+id/labelNat" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

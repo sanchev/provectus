@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Provectus</string>
+    <string name="action_settings">Settings</string>
+    <string name="labelLocationText">Location:</string>
+    <string name="labelStreetText">Street:</string>
+    <string name="labelCityText">City:</string>
+    <string name="labelStateText">State:</string>
+    <string name="labelPostcodeText">Postcode:</string>
+    <string name="labelEmailText">Email:</string>
+    <string name="labelLoginText">Login:</string>
+    <string name="labelUsernameText">Username:</string>
+    <string name="labelPasswordText">Password:</string>
+    <string name="labelSaltText">Salt:</string>
+    <string name="labelMd5Text">md5:</string>
+    <string name="labelSha1Text">sha1:</string>
+    <string name="labelSha256Text">sha256:</string>
+    <string name="labelDobText">Dob:</string>
+    <string name="labelRegisteredText">Registered:</string>
+    <string name="labelPhoneText">Phone:</string>
+    <string name="labelCellText">Cell:</string>
+    <string name="labelIdText">Id:</string>
+    <string name="labelIdNameText">Name:</string>
+    <string name="labelIdValueText">Value:</string>
+    <string name="labelNatText">Nat:</string>
+    <string name="pictureLargeDescription">User Photo</string>
+    <string name="logoImgDescription">Logo</string>
+</resources>
