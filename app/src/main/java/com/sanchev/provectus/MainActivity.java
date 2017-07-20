@@ -10,9 +10,6 @@ import android.widget.ListView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
-
-    private List<User> users;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ListView usersList = (ListView) findViewById(R.id.usersList);
         usersList.setAdapter(userAdapter);
 
-        users = UserStorage.getInstance(this).getUsers();
+        List<User> users = UserStorage.getInstance(this).getUsers();
         userAdapter.addAll(users);
 
         usersList.setOnItemClickListener(this);
@@ -31,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        User user = users.get(i);
+        User user = UserStorage.getInstance(this).getUser(i);
         Intent intent = new Intent(this, UserActivity.class);
         intent.putExtra(User.class.getCanonicalName(), user);
         startActivity(intent);
