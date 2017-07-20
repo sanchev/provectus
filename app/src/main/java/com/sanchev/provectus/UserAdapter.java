@@ -26,7 +26,6 @@ class UserAdapter extends ArrayAdapter<User> {
         layoutResourceId = resource;
     }
 
-
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
