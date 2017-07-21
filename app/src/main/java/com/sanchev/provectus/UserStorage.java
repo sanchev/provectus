@@ -18,7 +18,7 @@ import java.util.List;
 
 public class UserStorage {
     private static final String API_URL = "https://randomuser.me/api/?results=%d";
-    private static final int USER_COUNT = 5000;
+    private static final int USER_COUNT = 50;
     private static final String RESULTS_TAG = "results";
 
     private static UserStorage instance;

@@ -3,34 +3,35 @@ package com.sanchev.provectus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.view.View.OnClickListener;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        UserAdapter userAdapter = new UserAdapter(this, R.layout.user_item);
-
-        ListView usersList = (ListView) findViewById(R.id.usersList);
-        usersList.setAdapter(userAdapter);
+        final RecyclerView usersList = (RecyclerView) findViewById(R.id.usersList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        usersList.setLayoutManager(layoutManager);
 
         List<User> users = UserStorage.getInstance(this).getUsers();
-        userAdapter.addAll(users);
+        UserAdapter userAdapter = new UserAdapter(this, new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int itemPosition = usersList.getChildLayoutPosition(view);
+                User user = UserStorage.getInstance(getApplicationContext()).getUser(itemPosition);
+                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+                intent.putExtra(User.class.getCanonicalName(), user);
+                startActivity(intent);
+            }
+        }, users);
 
-        usersList.setOnItemClickListener(this);
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        User user = UserStorage.getInstance(this).getUser(i);
-        Intent intent = new Intent(this, UserActivity.class);
-        intent.putExtra(User.class.getCanonicalName(), user);
-        startActivity(intent);
+        usersList.setAdapter(userAdapter);
     }
 }

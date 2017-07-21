@@ -1,60 +1,54 @@
 package com.sanchev.provectus;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 import com.squareup.picasso.Picasso;
 
-class UserAdapter extends ArrayAdapter<User> {
+import java.util.List;
 
-    private Context context;
-    private int layoutResourceId;
+class UserAdapter extends RecyclerView.Adapter<UserHolder> {
 
-    private static final String LOG_TAG = "UserAdapter";
+    Context context;
+    OnClickListener onClickListener;
+    List<User> users;
 
-    UserAdapter(Context context, int resource) {
-        super(context, resource);
+    UserAdapter(Context context, OnClickListener onClickListener, List<User> users) {
         this.context = context;
-        layoutResourceId = resource;
+        this.onClickListener = onClickListener;
+        this.users = users;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        try {
-            User user = getItem(position);
-            View view;
-            if (convertView == null) {
-                LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = inflater.inflate(layoutResourceId, null);
-            } else {
-                view = convertView;
-            }
+    public UserHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.user_item, parent, false);
+        view.setOnClickListener(onClickListener);
+        UserHolder userHolder = new UserHolder(view);
+        return userHolder;
+    }
 
-            Picasso.
-                    with(context).
-                    load(user != null ? user.getPictureThumbnail() : null).
-                    into((ImageView)view.findViewById(R.id.pictureThumbnail));
+    @Override
+    public void onBindViewHolder(UserHolder holder, int position) {
+        User user = users.get(position);
+        Picasso.
+                with(context).
+                load(user.getPictureThumbnail()).
+                into(holder.getPictureThumbnail());
+        holder.
+                setBackgroundColor(user.getGender().equals("male") ? ContextCompat.getColor(context, R.color.colorBlue) : ContextCompat.getColor(context, R.color.colorPink)).
+                setNameTitle(user.getNameTitle()).
+                setNameFirst(user.getNameFirst()).
+                setNameLast(user.getNameLast());
+    }
 
-            assert user != null;
-            ((TextView) view.findViewById(R.id.nameTitle)).setText(user.getNameTitle());
-            ((TextView) view.findViewById(R.id.nameFirst)).setText(user.getNameFirst());
-            ((TextView) view.findViewById(R.id.nameLast)).setText(user.getNameLast());
-
-            view.setBackgroundColor(user.getGender().equals("male") ? ContextCompat.getColor(context, R.color.colorBlue) : ContextCompat.getColor(context, R.color.colorPink));
-
-            return view;
-        } catch (Exception ex) {
-            Log.e(LOG_TAG, "error", ex);
-            return null;
-        }
+    @Override
+    public int getItemCount() {
+        return users.size();
     }
 }
