@@ -18,7 +18,7 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         Intent intent = getIntent();
-        User user = intent.getParcelableExtra(User.class.getCanonicalName());
+        User user = UserStorage.getInstance(this).getUser(intent.getIntExtra(UserStorage.USER_INDEX, 0));
 
         ImageView pictureLarge = (ImageView) findViewById(R.id.pictureLarge);
         Picasso.

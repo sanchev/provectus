@@ -25,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int itemPosition = usersList.getChildLayoutPosition(view);
-                User user = UserStorage.getInstance(getApplicationContext()).getUser(itemPosition);
                 Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-                intent.putExtra(User.class.getCanonicalName(), user);
+                intent.putExtra(UserStorage.USER_INDEX, itemPosition);
                 startActivity(intent);
             }
         }, users);

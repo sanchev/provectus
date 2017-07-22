@@ -21,6 +21,7 @@ public class UserStorage {
     private static final String API_URL = "https://randomuser.me/api/?results=%d";
     private static final int USER_COUNT = 2;
     private static final String RESULTS_TAG = "results";
+    public static final String USER_INDEX = "index";
 
     private static UserStorage instance;
 
